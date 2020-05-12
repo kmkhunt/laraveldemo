@@ -13,7 +13,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
 
     /**
@@ -23,11 +23,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home')->test3();
-        echo "local addtion"
+        return view('home')->test();
     }
 
-    public function test4(){
-        echo "local addtion test4";
+    public function test2(){
+        echo "test2"; die;
     }
 }

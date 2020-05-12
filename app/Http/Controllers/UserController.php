@@ -14,19 +14,12 @@ class UserController extends Controller {
 	 */
 	public function index(Request $request) {
         echo "local commit changes";
+        echo "this is just test2 first remote file change";
 		return view("user.index");
 	}
 
 	public function indexJson(Request $request) {
         echo "after remove bunch of remove code";
-
-		if (!empty($request['search']['value'])) {
-			$searchValue = $request['search']['value'];
-			$query = $query->where(function ($query) use ($searchValue) {
-				$query->orWhere("users.name", "LIKE", "%$searchValue%")
-					->orWhere("users.email", "LIKE", "%$searchValue%")
-					->orWhere("users.created_at", "LIKE", "%$searchValue%");
-			});
 
 			$queryTotal = $queryTotal->where(function ($queryTotal) use ($searchValue) {
 				$queryTotal->orWhere("users.name", "LIKE", "%$searchValue%")
@@ -82,5 +75,6 @@ class UserController extends Controller {
 
     public function test3(){
         echo "test3";
+        echo "this is addtion";
     }
 }
