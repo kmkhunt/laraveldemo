@@ -13,27 +13,13 @@ class UserController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function index(Request $request) {
+        echo "this is just test";
 		return view("user.index");
 	}
 
 	public function indexJson(Request $request) {
-
-		$response = array();
-		$response['draw'] = intval($request->get('draw'));
-		$skip = (isset($request['start']) ? intval($request['start']) : 1);
-		$columns = $request->get('columns');
-		$order = $request->get('order');
-
-		$query = \DB::table('users')->select(
-			\DB::raw('CONCAT("tr", "_", users.id) as DT_RowId'),
-			'users.id',
-			'users.name',
-			'users.email',
-			'users.created_at'
-		);
-
-		$queryTotal = \DB::table('users')->select('*');
-
+        echo "after remove bunch of remove code";
+        
 		if (!empty($request['search']['value'])) {
 			$searchValue = $request['search']['value'];
 			$query = $query->where(function ($query) use ($searchValue) {
@@ -75,6 +61,22 @@ class UserController extends Controller {
 		$records = $query->limit(10)->skip($skip)->get()->toArray();
 		$response['data'] = $records;
 		return response()->json($response);
+        
+        $response = array();
+		$response['draw'] = intval($request->get('draw'));
+		$skip = (isset($request['start']) ? intval($request['start']) : 1);
+		$columns = $request->get('columns');
+		$order = $request->get('order');
+
+		$query = \DB::table('users')->select(
+			\DB::raw('CONCAT("tr", "_", users.id) as DT_RowId'),
+			'users.id',
+			'users.name',
+			'users.email',
+			'users.created_at'
+		);
+
+		$queryTotal = \DB::table('users')->select('*');
 
 	}
 
