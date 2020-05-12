@@ -29,4 +29,8 @@ class HomeController extends Controller
     public function test2(){
         echo "test2"; die;
     }
+    
+    public function test3(){
+        echo "test3"; die;
+    }
 }
