@@ -13,13 +13,13 @@ class UserController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function index(Request $request) {
-        echo "this is just test";
+        echo "this is just test and resolve line";
 		return view("user.index");
 	}
 
 	public function indexJson(Request $request) {
         echo "after remove bunch of remove code";
-        
+
 		if (!empty($request['search']['value'])) {
 			$searchValue = $request['search']['value'];
 			$query = $query->where(function ($query) use ($searchValue) {
@@ -61,7 +61,7 @@ class UserController extends Controller {
 		$records = $query->limit(10)->skip($skip)->get()->toArray();
 		$response['data'] = $records;
 		return response()->json($response);
-        
+
         $response = array();
 		$response['draw'] = intval($request->get('draw'));
 		$skip = (isset($request['start']) ? intval($request['start']) : 1);
