@@ -13,7 +13,7 @@ class UserController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function index(Request $request) {
-        echo "this is just test and now test2";
+        echo "this is just1";
 		return view("user.index");
 	}
 
