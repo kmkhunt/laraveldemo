@@ -23,6 +23,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('home')->test3();
+        echo "local addtion"
+    }
+
+    public function test4(){
+        echo "local addtion test4";
     }
 }

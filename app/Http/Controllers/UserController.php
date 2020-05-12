@@ -13,7 +13,7 @@ class UserController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function index(Request $request) {
-        echo "this is just test2";
+        echo "local commit changes";
 		return view("user.index");
 	}
 
@@ -80,4 +80,7 @@ class UserController extends Controller {
 
 	}
 
+    public function test3(){
+        echo "test3";
+    }
 }
